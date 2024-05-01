@@ -1,118 +1,96 @@
+
+/*WEB GENERAL:*/
+
 html {
-  box-sizing: border-box;
-  font-size: 62.5%; /* 1REM = 10px */
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1REM = 10px */
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 body {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.4rem;
-  line-height: 2;
-  --color1: #FFF;
-  --color2: #037bc0;
+    background-color: #DBD6CD;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    --color1: #FFF; /*Define variables CSS para colores que se pueden reutilizar en todo el documento.*/
+    --color2: #315659;
+}
+a {
+    text-decoration: none;
+    color: #000;
 }
 
-/* Globales */
+img {
+    max-width: 100%;
+    display: block;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+ /*Pequeños reseteos: Son margins y paddings para que que no quede tan brusco el cambio de un tamaño a otro*/
 h1, 
 h2, 
 h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Urbanist', serif;
   margin: 0 0 5rem 0;
 }
 h1 {
-  font-size: 3rem;
+    font-size: 2rem;
 }
 h2 {
   font-size: 2.8rem;
 }
 h3 {
   font-size: 2.4rem;
+  font-weight: bold;
 }
 
+/*Responsive general*/
 @media (min-width: 768px) {
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 3rem;
-  }
-  h3 {
-    font-size: 2rem;
-  }
-}
-a {
-  text-decoration: none;
-  color: #000;
-}
-.contenedor {
-  max-width: 120rem;
-  margin: 0 auto;
-}
-img {
-  max-width: 100%;
-  display: block;
+    h1 {
+      font-size: 4rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
 }
 
-.btn {
-  background-color: #8cbc00;
-  display: block;
-  color: #FFF;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 1rem;
-  transition: background-color .3s ease-out ;
-  text-align: center;
-  border: none;
-}
-.btn:hover {
-  background-color: #769c02;
-  cursor: pointer;
-}
 
-/** Utilidades */
-.text-center {
-  text-align: center;
+/* Header y Navegacion*/
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: var(--color2);
+    padding: 10px 20px;
 }
-
-@media (min-width: 768px) { 
-  .max-width-30 {
-      max-width: 30rem;
-  }
+  
+.logo img {
+    width: 40px;
 }
-
-/** Header y Navegacion **/
+.logo:hover{
+    text-shadow:0 0 1rem #FFF;
+}
 .nombre-sitio {
-  margin-top: 5rem;
-  text-align: center;
+    margin-top: 5rem;
+    font-size: 4.5rem;
+    text-align: center;
 }
 .nombre-sitio span {
-  color: #FFF;
+    color: #FFF;
 }
-.contenedor-navegacion {
-  border-top: .1rem solid #e1e1e1;
-}
-.nav-principal {
-  padding: 2rem 0;
-  display: flex;
-  justify-content: space-between;
-}
-.nav-bar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  position: relative;
-  background-color: var(--color2);
-  padding: 10px 20px;
-}
-
-.logo img {
-  width: 40px;
-}
+  
 .menu {
-  display: flex;
+    display: flex;
 }
 .menu li {padding-left: 30px;}
 .menu li a {
@@ -120,11 +98,11 @@ img {
     text-decoration: none;
     color: var(--color1);
     text-align: center;
-    transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out; /*ease-in-out es una función de temporización  y proporciona un efecto donde la transición comienza lentamente, se acelera en el medio, y luego vuelve a desacelerarse al final*/
     position: relative;
     text-transform: uppercase;
 }
-
+  
 .menu li a::after{
     content: "";
     position: absolute;
@@ -135,37 +113,42 @@ img {
     background-color: var(--color1);
     transition: 0.15s ease-in-out;
 }
-
+  
 .menu li a:hover::after {
     width: 100%;
 }
-
+  
 .open-menu, .close-menu {
     position: absolute;
     color: var(--color1);
     cursor: pointer;
     font-size: 1.5rem;
-    display: none;
+    display: none; /*Los mantenemos ocultos*/
 }
-
+  
 .open-menu {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
 }
-
+  
 .close-menu {
     top: 20px;
     right: 20px;
 }
-
+  
 #check {
-    display: none;
+    display: none; /* Oculta el checkbox utilizado para controlar el estado del menú. Este checkbox actúa como un interruptor 
+    controlado por los botones de abrir y cerrar del menú y de la interacción del usuario con ellos.*/
 }
+
+/*Responsive nav: */
 
 @media(max-width: 768px) {
     .menu {
-        flex-direction: column;
+        /*flex-direction: column; align-items: center; justify-content: center; configuran el menú para que sus elementos
+        se apilen verticalmente y se centren tanto horizontal como verticalmente dentro del menú.*/
+        flex-direction: column; 
         align-items: center;
         justify-content: center;
         width: 80%;
@@ -178,7 +161,7 @@ img {
         transition: all 0.2 ease-in-out;
     }
     .menu li {
-        margin-top: 40px;
+        margin-top: 40px; 
     }
     .menu li a {
         padding: 10px;
@@ -186,346 +169,445 @@ img {
     .open-menu, .close-menu {
         display: block;
     }
-    #check:checked ~ .menu {
-        right: 0;
+    #check:checked ~ .menu { /*Activamos el menú cuando la pantalla tiene estas dimensiones*/
+        right: 0; 
     }
 }
 
+/*INDEX*/
+
+/*Imagen decorativa:*/
+
 .hero {
-  background-image: url(../img/principal2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 25rem;
-}
+    background-image: url(img/principal2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 25rem;
+  }
+
+/*Responsive imagen:*/
 
 @media (min-width: 768px) { 
-  .hero {
-      height: 55rem;
-  }
+    .hero {
+        height: 55rem;
+    }
 }
 
-/** Categorias **/
+/* Section Categorias */
+
 .categorias {
-  padding: 5rem 0;
+    padding: 5rem 0;
 }
 .categoria {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
-@media (min-width: 768px) { 
-  .categoria {
-      margin-bottom: 0;
-  }
-}
+
 .categoria img {
-  width: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
 }
+
+.listado-categorias div:hover{
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem #A19A8C;
+}
+
 .categoria a {
-  text-align: center;
-  display: block;
-  padding: 2rem;
-  font-size: 2rem;
+    text-align: center;
+    display: block;
+    padding: 2rem;
+    font-size: 2rem;
 }
 .categoria a:hover {
-  background-color: #037bc0;
-  color: #FFFFFF;
-  border-bottom-right-radius: 1rem;
-}
-@media (min-width: 768px) { 
-  .listado-categorias {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-  }
-  
+    background-color: #315659;
+    color: #FFFFFF;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem ;
 }
 
-/** Bloque Nosotros */
-.sobre-nosotros {
-  background-image: linear-gradient( to bottom, transparent 50%, #037bc0 50%, #037bc0 100% ), url(../img/nosotros.jpg);
-  background-position: center, top left;
-  background-repeat: no-repeat;
-  background-size: 100%, 70rem;
-}
+/*Responsive Categorias:*/
 
 @media (min-width: 768px) { 
-  .sobre-nosotros {
-      background-image: linear-gradient( to right, transparent 50%, #037bc0 50%, #037bc0 100% ), url(../img/nosotros.jpg);
-      background-position: left center ;
-      padding: 10rem 0;
-      background-size: 100%, 160rem;
-  }
-}
-.sobre-nosotros-grid {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-}
-@media (min-width: 768px) { 
-  .sobre-nosotros-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: unset;
-      column-gap: 10rem;
-  }
-}
-.texto-nosotros {
-  grid-row: 2 / 3;
-  color: #FFF;
-  padding: 5rem;
-}
-@media (min-width: 768px) { 
-  .texto-nosotros {
-      grid-column: 2 / 3;
-  }
+    .listado-categorias {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /*Esta propiedad organiza el espacio horizontal dentro de un contenedor en forma de cuadrícula 
+         grid-template-columns: Dice cómo queremos dividir nuestro contenedor en columnas a lo largo. repeat(e, 1fr): repeat(3, 1fr): Esta es una forma práctica 
+         de decir que queremos tres columnas iguales*/
+        gap: 2rem; /*Gap: Es el espacio que se deja entre cada elemento de la cuadrícula. */
+    }
+    .categoria {
+        margin-bottom: 0;
+    }
 }
 
-/** Listado de Productos **/
+/* Section elegirnos */
+.elegirnos {
+    background-image: linear-gradient( to bottom, transparent 50%, #31565985 50%, #315659 100% ), url(img/nosotros.jpg); /*Este fondo incluye una combinación de un gradiente lineal y una imagen, 
+    junto con propiedades adicionales para controlar la posición, repetición y tamaño del fondo*/
+    background-position: center, top left;
+    background-repeat: no-repeat;
+    background-size: 100%, 70rem;
+  }
+
+.elegirnos-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); /*En este caso nos referimos a las filas.*/
+}
+.texto-elegirnos {
+    grid-row: 2 / 3;
+    color: #FFF;
+    padding: 5rem;
+    text-align: justify;
+}
+
+  /*Responsive elegirnos:*/
+
+@media (min-width: 768px) { 
+    .elegirnos {
+        background-image: linear-gradient( to right, transparent 50%, #31565985 50%, #315659 100%  ), url(img/nosotros.jpg);
+        background-position: left center ;
+        padding: 10rem 0;
+        background-size: 100%, 160rem;
+    }
+    .elegirnos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: unset; /*a propiedad grid-template-rows en CSS es usada para definir el tamaño
+         y la cantidad de filas en un contenedor de cuadrícula (grid container).
+         Unset actúa como un reseteador para la propiedad a la que se aplica.
+        Su efecto es esencialmente una combinación de inherit y initial, dependiendo de si la propiedad es heredada por defecto o no.
+        En el caso de grid-template-rows, que no es una propiedad heredada, unset hace que se comporte como initial. Esto significa que
+        la propiedad volverá a su valor inicial. El valor inicial de grid-template-rows es none, lo que indica que no hay tamaños de fila definidos 
+        Cuando usas grid-template-rows: unset en un contenedor de cuadrícula, estás efectivamente eliminando cualquier definición previa del tamaño 
+        de las filas que podrías haber especificado*/
+        column-gap: 10rem;
+    }
+    .texto-elegirnos {
+        grid-column: 2 / 3;
+    }
+}
+
+/*Main: Contenido-principal + productos:*/
+
 .contenido-principal {
-  padding-top: 5rem;
-}
-@media (min-width: 768px) { 
-  .listado-productos {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2rem;
-  }
-  .producto:nth-child(1) {
-      grid-column-start: 1;
-      grid-column-end: 7;
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-  }
-  .producto:nth-child(1) img {
-      height: 43rem;
-      width: 100%;
-      object-fit: cover;
-  }
-  .producto:nth-child(2) {
-      grid-column-start: 1;
-      grid-column-end: 4;
-  }
-  .producto:nth-child(2) img,
-  .producto:nth-child(3) img {
-      height: 30rem;
-      width: 100%;
-      object-fit: cover;
-  }
-  .producto:nth-child(3) {
-      grid-column-start: 4;
-      grid-column-end: 7;
-  }
-  .producto:nth-child(4) {
-      grid-column-start: 1;
-      grid-column-end: 3;
-  }
-  .producto:nth-child(5) {
-      grid-column-start: 3;
-      grid-column-end: 5;
-  }
-  .producto:nth-child(6) {
-      grid-column-start: 5;
-      grid-column-end: 7;
-  }
+    padding-top: 5rem;
 }
 
-
-
+.listado-productos div>img{
+    transform: scale(0.9);
+    transition: 0.9s;
+}
+.listado-productos div>img:hover{
+    opacity: 1;
+    transform: scale(1);
+}
 .producto {
-  background-color: #037bc0;
-  margin-bottom: 2rem;
+    background-color: #A19A8C;
+    margin-bottom: 2rem;
 }
-@media (min-width: 768px) { 
-  .producto {
-      margin-bottom: 0;
-  }
+.producto:hover{
+    box-shadow: 0 0 1rem #A19A8C;
 }
 .producto:last-of-type {
-  margin-bottom: 0;
-}
-
+    margin-bottom: 0;
+  }
+  
 .texto-producto {
-  text-align: center;
-  color: #FFFFFF;
-  padding: 2rem;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2rem;
+    
 }
 .texto-producto h3 {
-  margin: 0;
+    margin: 0;
+    color: #000;
+    
+    
 }
 .texto-producto p {
-  margin: 0 0 .5rem 0;
+    margin: 0 0 .5rem 0;
 }
 .texto-producto .precio {
-  font-size: 2.8rem;
-  font-weight: 900;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+.btn {
+    background-color: #47969A;
+    display: block;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1rem;
+    transition: background-color .3s ease-out ; /*es utilizada para controlar cómo
+     cambian las transiciones de las propiedades CSS de un estado a otro de manera suave y gradual.
+     Ease-out significa que la transición comienza rápidamente y luego se desacelera hacia el final del período de la transición*/
+    text-align: center;
+    border: none;
+}
+.btn:hover {
+    background-color: #8AC6C9;
+    cursor: pointer;
 }
 
-/** Footer **/
+/* Responsive Main: Contenido-principal + productos  */
+
+@media (min-width: 768px) { 
+    .listado-productos {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /*Aquí decimos que todo el contenedor listado productos va a ser una cuadrícula de 6 columnas iguales*/
+        gap: 2rem;
+    }
+    .producto:nth-child(1) { /*Estamso diciendo que vamos a seleccionar el porducto que esté en la posición 1*/
+        grid-column-start: 1; /*Y este va a ocupar de la primera a la última columna*/
+        grid-column-end: 7;
+        display: grid; /*Aquí decimos que este producto se va a comportar como una cuadrícula*/
+        grid-template-columns: 3fr 1fr; /*Aquí indicamos que este se va a dividir en dos columnas, una ocupará 3fr y la otra 1fr (3:1)*/
+    }
+    .producto:nth-child(1) img { 
+        height: 43rem;
+        width: 100%;
+        object-fit: cover; /*Esta propiedad garantiza que la imagen cubra completamente el área del contenedor sin necesidad de respetar sus proporciones originales.*/
+    }
+    .producto:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .producto:nth-child(3) {
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+    .producto:nth-child(2) img,
+    .producto:nth-child(3) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .producto:nth-child(5) {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+    .producto:nth-child(6) {
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }
+    .producto {
+        margin-bottom: 0;
+    }
+}
+
+/*WEB GENERAL:*/
+
+/*Footer*/
 .site-footer {
-  border-top: 1px solid #e1e1e1;
-  margin-top: 5rem;
-  padding-top: 5rem;
+    border-top: 1px solid #e1e1e1;
+    margin-top: 5rem;
+    padding-top: 5rem;
 }
 .site-footer h3 {
-  margin-bottom: .5rem;
-  text-align: center;
+    margin-bottom: .5rem;
+    text-align: center;
 }
-@media (min-width: 768px) { 
-  .site-footer h3 {
-      text-align: left;
-  }
-  .grid-footer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-  }
+.grid-footer{
+    padding-left: 13%;
 }
-
 .grid-footer > div {
-  margin-bottom: 2rem;
-}
-@media (min-width: 768px) { 
-  .grid-footer > div {
-      margin: 0;
-  }
-}
-
-
+    margin-bottom: 2rem;
+} 
 .footer-menu a {
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
 }
-@media (min-width: 768px) { 
-  .footer-menu a {
-      text-align: left;
-  }
-}
-
 .copyright {
-  margin-top: 5rem;
-  text-align: center;
+    margin-top: 5rem;
+    text-align: center;
+} 
+
+/*Responsive Footer:*/
+
+@media (min-width: 768px) { 
+    .site-footer h3 {
+        text-align: left;
+    }
+    .grid-footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        
+    }
+    .grid-footer > div {
+        margin: 0;
+    }
+    .footer-menu a {
+        text-align: left;
+    }
 }
 
-/** Nosotros **/
+/*QUIENES SOMOS:*/
+
+.text-center{
+    text-align: center;
+}
 .contenido-nosotros {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-columns: repeat(auto-fit, minmax( 25rem, 1fr ) );
-  column-gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /*Tendrá dos columnas donde la segunda es el doble de ancha que la primera*/
+    grid-template-columns: repeat(auto-fit, minmax( 25rem, 1fr ) ); /*Con auto-fit, las columnas se generan automáticamente
+     para ajustarse al contenedor.auto-fit colapsa cualquier espacio extra entre las columnas y las expande para llenar el contenedor 
+     si hay más espacio disponible después de alcanzar el tamaño máximo de las columnas
+     La función minmax() es usada aquí para definir un tamaño mínimo y máximo para cada columna. */
+    column-gap: 4rem;
+    background-color: #A19A8C;
+    padding: 1rem;
+    width: 100%;
 }
 
+.contenido-nosotros img{
+    border-radius: 4rem;
+}
+
+.contenido-nosotros:hover img{
+    box-shadow:0 0 1rem #f1eee7dd; 
+}
+  
 .informacion-nosotros {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem;
-}
-@media (min-width: 768px) { 
-  .informacion-nosotros {
-      padding: 0;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    text-align: justify;
 }
 
-/** Blog */
-@media (min-width: 768px) { 
-  .contenedor-blog {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      column-gap: 4rem;
-  }
-}
 
+
+/*Responsive Quienes somos:*/
+
+@media (min-width: 768px) { 
+    .informacion-nosotros {
+        padding: 0;
+    }
+  }
+
+
+/* AREA DE ACTUACIÓN */
+  
 .entrada {
-  border-bottom: 2px solid #e1e1e1;
-  margin-bottom: 2rem;
-  padding-bottom: 4rem;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 2rem;
+    padding-bottom: 4rem;
 }
 .entrada h2 {
-  text-align: center;
+    text-align: center;
 }
-@media (min-width: 768px) { 
-  .entrada h2 {
-      text-align: left;
-  }
-}
+
 .contenido-blog {
-  padding: 2rem;
+    padding: 2rem;
 }
 .entrada:last-of-type {
-  border: none;
+    border: none;
 }
-@media (min-width: 768px) { 
-  .entrada-meta {
-      display: flex;
-      justify-content: space-between;
-  }
-}
-
+  
 .entrada-meta p {
-  font-weight: bold;
+    font-weight: bold;
+ }
+.contenedor-blog img{
+    border-radius: 3rem;
+    border: solid 1rem #315659;
 }
+
 .entrada-meta span {
-  color: #037bc0;
+    color: #315659;
 }
-.contenido-entrada-blog {
-  width: 60rem;
-  margin: 0 auto;
+.entrada-blog {
+    text-align: justify;
+}
+.contenedor-blog aside{
+    background-color: rgb(161, 155, 139);
+    color: var(--color1);
+    border-radius: 3rem;
+    position: relative;
+    top: 5%;
+    height: 91%;
+    margin-top: 3%;
+    text-align: center;
+}
+.contenedor-blog aside:hover{
+    box-shadow: 0 0 1rem #A19A8C;
+}
+.contenedor-blog aside h3{
+    position: relative;
+    top: 5%;
+}
+.contenedor-blog aside ul{
+    color: var(--color1);
+    position: relative;
+    top: 5%;
+    left: -3%;
+    list-style-type: none;
+    padding-bottom: 5%;
+}
+.contenedor-blog aside a{
+    color: var(--color1);
 }
 
-/** Galeria **/
-.galeria {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
+  /*Responsive area actuación:*/
 
-@media (min-width: 768px) { 
-  .galeria {
-      grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 768px) { 
+    .contenedor-blog {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+    .entrada h2 {
+        text-align: left;
+    }
+    .entrada-meta {
+        display: flex;
+        justify-content: space-between;
+    }
   }
-}
 
-.galeria img {
-  height: 40rem;
-  width: 40rem;
-  object-fit: cover;
-}
-/* Formulario */
+  /* FORMULARIO */
+
 .formulario {
-  max-width: 60rem;
-  margin: 0 auto;
+    max-width: 65rem;
+    margin: 0 auto;
 }
-
+  
 .formulario fieldset {
- border: 1px solid black;
- margin-bottom: 2rem;
+   border: 1px solid black;
+   margin-bottom: 2rem;
 }
 .formulario legend {
-  background-color: #005485;
-  width: 100%;
-  text-align: center;
-  color: #FFF;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 1rem;
-  margin-bottom: 4rem;
-
+    background-color: #315659;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 4rem;
+  
 }
-
+  
 .campo {
-  display: flex;
-  margin-bottom: 2rem;
+    display: flex;
+    margin-bottom: 2rem;
 }
 .campo label {
-  flex-basis: 10rem;
+    flex-basis: 10rem;
 } 
-.campo input:not([type="radio"]),
+.campo input:not([type="radio"]), /*La pseudo-clase :not() se utiliza para excluir los inputs de tipo radio de los estilos aplicados por esta regla.*/
 .campo textarea,
 .campo select  {
-  flex: 1;
-  border: 1px solid #e1e1e1;
-  padding: 1rem;
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
 }
 
-
+  
+  

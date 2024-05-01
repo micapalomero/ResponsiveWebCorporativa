@@ -9,10 +9,10 @@
     <script src="https://kit.fontawesome.com/eb12a54726.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/icon-tienda.png" type="image/x-icon">
 </head>
 
 <body>
@@ -21,16 +21,16 @@
         <nav>
             <ul class="nav-bar">
                 <li class="logo">
-                    <a href="/" alt="logo">
+                    <a href="index.html" alt="logo">
                         <h1 class="nombre-sitio">Tienda <span> Muebles </span></h1>
                     </a>
                 </li>
                 <input type="checkbox" name="" id="check">
                 <span class="menu">
-                    <li><a href="/">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="quienes_somos.html">Quienes Somos</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="area_de_actuacion.html">Area de actuacion</a></li>
+                    <li><a href="area_de_actuacion.html">Servicios</a></li>
+                    <!-- <li><a href="area_de_actuacion.html">Area de actuacion</a></li> -->
                     <li><a href="contacto.html">Contacto</a></li>
                     <label for="check" class="close-menu"><i class="fa fa-times"></i></label>
                 </span>
@@ -41,28 +41,33 @@
     <main class="contenido-principal contenedor ">
         <h2 class="text-center">Contacto</h2>
 
-        <form class="formulario">
+        <form class="formulario" action="mailto:Tienda111@gmail.com" method="post">
             <fieldset>
                 <legend>Tus Datos</legend>
                 
                 <div class="campo">
                     <label for="nombre">Nombre: </label>
-                    <input  id="nombre" type="text" placeholder="Tu Nombre" required>
+                    <input  id="nombre" type="text" placeholder="Nombre" required>
+                </div>
+
+                <div class="campo">
+                    <label for="nombre">Fecha de nacimiento: </label>
+                    <input id="fecha" type="date" max="2006-12-31"required>
                 </div>
 
                 <div class="campo">
                     <label for="asunto">Asunto:</label>
-                    <input id="asunto" type="text" placeholder="Tu Asunto"  required>
+                    <input id="asunto" type="text" placeholder="Asunto"  required>
                 </div>
 
                 <div class="campo">
                     <label for="email">E-mail:</label>
-                    <input id="email" type="email" placeholder="Tu Email" >
+                    <input id="email" type="email" placeholder="Email" >
                 </div>
 
                 <div class="campo">
                     <label for="tel">Teléfono:</label>
-                    <input id="tel" type="tel" placeholder="Tu Teléfono" >
+                    <input id="tel" type="tel" placeholder="Teléfono" >
                 </div>
 
                 <div class="campo">
@@ -79,12 +84,11 @@
                     <label for="pais">País</label>
                     <select id="pais">
                         <option value="">-- Seleccione -- </option>
-                        <option value="MX">México</option>
-                        <option value="PR">Perú</option>
-                        <option value="CO">Colombia</option>
-                        <option value="AR">Argentina</option>
                         <option value="ES">España</option>
-                        <option value="CL">Chile</option>
+                        <option value="FR">Francia</option>
+                        <option value="IT">Italia</option>
+                        <option value="AL">Alemania</option>
+                        <option value="PO">Portugal</option>
                     </select>
 
                 </div>
@@ -112,13 +116,13 @@
                         <option value="Exterior">
                         <option value="Recamaras">
                         <option value="Oficina">
-                        <option value="Televisión">
+                        <option value="Comedor">
                     </datalist>
                 </div>
 
             </fieldset>
 
-            <input class="btn" type="submit" value="Enviar Formulario" >
+            <input class="btn form" type="submit" value="Enviar Formulario" >
         </form>
         
     </main>
@@ -162,7 +166,7 @@
 
         </div>
 
-        <p class="copyright">Todos los derechos Reservados, TiendaMuebles</p>
+        <p class="copyright">&#169;Todos los derechos Reservados, Tienda Muebles-Grupo 8 DAW</p>
     </footer>
 
 </body>
